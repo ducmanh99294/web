@@ -1,0 +1,132 @@
+.cartPage {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  
+  .cartTitle {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .cartContent {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .cartItems {
+    flex: 2;
+  }
+  
+  .cartItem {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    position: relative;
+  }
+  
+  .productImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1.5rem;
+  }
+  
+  .productDetails {
+    flex: 1;
+  }
+  
+  .productDetails h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .price {
+    font-weight: bold;
+    color: #ff4d4d;
+  }
+  
+  .removeButton {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #999;
+    cursor: pointer;
+  }
+  
+  .removeButton:hover {
+    color: red;
+  }
+  
+  .summaryBox {
+    flex: 1;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  padding: 2rem;
+  height: fit-content;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+
+  position: sticky;
+  top: 100px; 
+  }
+  
+  .summaryBox h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .summaryRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .totalPrice {
+    color: #ff4d4d;
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
+  
+  .checkoutButton,
+  .continueShoppingButton {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+  
+  .checkoutButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+  }
+  
+  .checkoutButton:hover {
+    background-color: #45a049;
+  }
+  
+  .continueShoppingButton {
+    background-color: white;
+    border: 1px solid #ccc;
+    color: #333;
+  }
+  
+  .continueShoppingButton:hover {
+    background-color: #f0f0f0;
+  }
+  
+  @media (max-width: 768px) {
+    .cartContent {
+      flex-direction: column;
+    }
+  }
+  
