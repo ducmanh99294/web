@@ -1,26 +1,27 @@
 import React from 'react';
-import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate, Navigate } from 'react-router-dom'; // 🔸 Thêm Outlet
+import { useAuth } from '../../auth';
 
 const Dashboard = () => {
+    
     const navigate = useNavigate();
     const handlBackHome = () => {
         navigate('/');
-    };
+  }
+    const [auth] = useAuth();
+    if (!auth?.user || auth.user.role !== 'admin') {
+    return <Navigate to="/" />;
+    } 
 
     return (
         <div style={{ display: 'flex', minHeight: '100vh' }}>
             {/* Sidebar */}
             <aside style={{
-                position: 'sticky',
-                top: 0, // ✅ Cần để sticky hoạt động
-                alignSelf: 'flex-start', // ✅ Đảm bảo đúng chiều cao
-                height: '100vh', // ✅ Cố định chiều cao toàn màn hình
                 width: '250px',
                 background: '#1e293b',
                 color: 'white',
                 padding: '20px 15px',
-                boxShadow: '2px 0 10px rgba(0,0,0,0.1)',
-                overflowY: 'auto' // ✅ Cho cuộn riêng nếu nhiều nội dung
+                boxShadow: '2px 0 10px rgba(0,0,0,0.1)'
             }}>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>Admin Panel</h2>
                 <nav>
@@ -30,13 +31,13 @@ const Dashboard = () => {
                         <li><Link to="/dashboard/adminUser" style={linkStyle}>Quản lý người dùng</Link></li>
                         <li><Link to="/dashboard/adminBlog" style={linkStyle}>Quản lý blog</Link></li>
                         <li><Link to="/dashboard/settings" style={linkStyle}>Cài đặt</Link></li>
-                        <button onClick={handlBackHome} style={{ marginTop: '12px', padding: '8px', background: '#3b82f6', color: 'white', border: 'none', cursor: 'pointer' }}>Quay lại</button>
+                        <button onClick={handlBackHome}>Quay lại</button>
                     </ul>
                 </nav>
             </aside>
 
             {/* Main content */}
-            <div style={{ flex: 1, background: '#f1f5f9', padding: '20px', overflowY: 'auto' }}>
+            <div style={{ flex: 1, background: '#f1f5f9', padding: '20px' }}>
                 {/* Header */}
                 <header style={{
                     background: 'white',
@@ -47,9 +48,9 @@ const Dashboard = () => {
                     <h1 style={{ margin: 0 }}>Dashboard</h1>
                 </header>
 
-                {/* Nội dung chính */}
+                {/* Nội dung chính (nơi Outlet sẽ render các route con) */}
                 <main>
-                    <Outlet />
+                    <Outlet /> {/* 🔥 Quan trọng: nơi hiển thị AdminUser hoặc bất kỳ route con nào */}
                 </main>
             </div>
         </div>

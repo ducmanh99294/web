@@ -94,7 +94,7 @@ const HomePage = () => {
                   <div className={styles.category}>{p.category?.name}</div>
                     <h2 className={styles.name}>{p.name}</h2>
                     <p className={styles.description}>{p.description}</p>
-                    <div className={styles.price}>{p.price?.toLocaleString('vi-VN')} đ</div>
+                    <div className={styles.price}>{p.price?.toLocaleString('vi-VN')} $</div>
                   </div>
                 </div>
               ))

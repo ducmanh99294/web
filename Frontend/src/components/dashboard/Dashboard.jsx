@@ -4,7 +4,7 @@ import { useAuth } from '../../auth';
 const Dashboard = () => {
     const [auth] = useAuth();
 
-    if (!auth.user) {
+    if (!auth?.user || auth.user.role !== "admin") {
         return <p style={{ textAlign: 'center' }}>Loading...</p>;
     }
 
